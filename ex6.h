@@ -7,6 +7,8 @@
 #include <string.h>
 
 
+typedef enum { FALSE, TRUE } BOOL;
+
 typedef enum
 {
     GRASS,
@@ -400,6 +402,13 @@ void removeOwnerFromCircularList(OwnerNode *target);
  */
 OwnerNode *findOwnerByName(const char *name);
 
+/**
+ * @brief Find an owner by ID in the circular list.
+ * @return pointer to the matching OwnerNode or NULL
+ * Why we made it: To get an owner from the menu by number.
+ */
+OwnerNode *findOwnerByIndex(int index);
+
 /* ------------------------------------------------------------
    10) Owner Menus
    ------------------------------------------------------------ */
@@ -431,12 +440,11 @@ void mergePokedexMenu(void);
 /* ------------------------------------------------------------
    11) Printing Owners in a Circle
    ------------------------------------------------------------ */
-
 /**
  * @brief Print owners left or right from head, repeating as many times as user wants.
  * Why we made it: Demonstrates stepping through a circular list in a chosen direction.
  */
-void printOwnersCircular(void);
+void printOwnersCircular(int nums);
 
 /* ------------------------------------------------------------
    12) Cleanup All Owners at Program End
@@ -457,6 +465,16 @@ void freeAllOwners(void);
  * Why we made it: Our top-level UI that keeps the user engaged until they exit.
  */
 void mainMenu(void);
+
+/* ------------------------------------------------------------
+   14) Print the Owner names
+   ------------------------------------------------------------ */
+
+/**
+ * @brief Printing all the owner's names
+ */
+
+void printOwnerNames(void);
 
 // Array of Pokemon data
 static const PokemonData pokedex[] = {
